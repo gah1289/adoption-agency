@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{%block title%} {{pet.name}} {%endblock%}
+
+{%block content %}
+<div class="card w-50 m-3">
+    <img src="{{pet.photo_url}}" class="card-img-top" alt="Photo of {{pet.name}} the {{pet.species}}">
+    <div class="card-body">
+      <h5 class="card-title">{{pet.name}}</h5>
+      <p class="card-text"><div class="container">
+        <div class="row">
+          <div class="col">
+            Age: 
+          </div>
+          <div class="col">
+            {{pet.age}}
+          </div>
+        </div>
+        <div class="row">
+        <div class="col">
+          Species: 
+        </div>
+        <div class="col">{{pet.species}}
+        </div>
+        <div class="row">
+            <div class="col">
+              Available? 
+            </div>
+            <div class="col">
+                {% if pet.available %}Yes{% else %} No {% endif %}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              Info: 
+            </div>
+            <div class="col">
+              {{pet.notes}}
+            </div>
+          </div>
+      </div>
+    </p>
+    </div>
+    <a class="btn btn-info text-light" href="/edit/{{pet.id}}" role="button">Edit</a> 
+  </div>
+
+{% endblock %}
